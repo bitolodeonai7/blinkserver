@@ -50,7 +50,7 @@ abstract class Server extends BaseObject implements ContainerAware
     
     public function handleRequest(Request $request): Response
     {
-        $this->container->bind($request::class, $request);
+        $this->container->set($request::class, $request);
 
         $response = $this->getRouter()->handle($request);
 
